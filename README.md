@@ -49,7 +49,7 @@ O to trochę chodzi. Będę bardzo dumny z każdej osoby która podczas eventu n
 
 #### Kwiecień
 
-|       Mon       |       Tue       |      Wed      |       Thu       |         Fri         |      Sat       |    Sun     |
-| :-------------: | :-------------: | :-----------: | :-------------: | :-----------------: | :------------: | :--------: |
-|  1<br/>rainot.  |  2<br/>kris659  | 3<br/>mudziok | 4<br/>gahlammon | 5<br/>nesiaofficial | 6<br/>maciej_k | 7<br/>nck7 |
-| 8<br/>gutek8134 | 9<br/>ahonengey |      10       |       11        |         12          |       13       |     14     |
+|       Mon       |       Tue       |      Wed      |       Thu       |         Fri         |      Sat       |      Sun      |
+| :-------------: | :-------------: | :-----------: | :-------------: | :-----------------: | :------------: | :-----------: |
+|  1<br/>rainot.  |   2<br/>nck7    | 3<br/>mudziok | 4<br/>gahlammon | 5<br/>nesiaofficial | 6<br/>maciej_k | 7<br/>kris659 |
+| 8<br/>gutek8134 | 9<br/>ahonengey |      10       |       11        |         12          |       13       |      14       |
