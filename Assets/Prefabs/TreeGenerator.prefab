@@ -546,7 +546,7 @@ MonoBehaviour:
   activator: {fileID: 3204792247997927554}
   generationAmount: 1
   resource: {fileID: 11400000, guid: 0a13ce58defef9540b6ac56a9d3fd5f6, type: 2}
-  minigameName: Tree
+  minigamePrefab: {fileID: 6469253280152134193, guid: cd2c2654f5eb72d42b257741b72d42ce, type: 3}
 --- !u!1 &2376191698874147338
 GameObject:
   m_ObjectHideFlags: 0

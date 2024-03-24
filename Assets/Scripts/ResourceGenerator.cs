@@ -38,25 +38,14 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
     public GameResource resource;
 
     [SerializeField]
-    [Tooltip("Name of the minigame as specified in the MinigameManager")]
-    private string minigameName;
-    
+    private GameObject minigamePrefab;
+    private MinigameBase minigame;
 
     public event PropertyChangedEventHandler PropertyChanged;
-    private MinigameBase minigame;
 
     private void Awake()
     {
         activator.PropertyChanged += OnPropertyChanged;
-    }
-
-    private void Start()
-    {
-        if (!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
-        {
-            Debug.LogErrorFormat("No minigame named {0} found in the MinigamesManager. Check MinigamesManager configuration", minigameName);
-        }
-        minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;
     }
 
     private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -66,7 +55,9 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
             if (activator.IsActivated)
             {
                 isGenerating = true;
-                minigame.Open();
+                minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
+                minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;
+                minigame.closedEvent += () => minigame = null;
             }
             else
             {

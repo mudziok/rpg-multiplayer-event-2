@@ -9,10 +9,9 @@ public class MinigameBase : MonoBehaviour
     public event Action actionPerformedEvent;
     public event Action closedEvent;
 
-    //Starts the minigame. When you add a minigame you should be reset to the default state now
+    //Starts the minigame
     public virtual void Open()
     {
-        gameObject.SetActive(true);
     }
 
     //Override Update() to implement your minigame. Don't forget to call base.Update()
@@ -34,7 +33,7 @@ public class MinigameBase : MonoBehaviour
     protected void Close()
     {
         closedEvent?.Invoke();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     //Helper coroutines. These could be replaced with animation calls

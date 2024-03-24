@@ -321,7 +321,7 @@ MonoBehaviour:
   activator: {fileID: 5163353703969040587}
   generationAmount: 1
   resource: {fileID: 11400000, guid: 9fdc8eaa63412c740889b338509b2df9, type: 2}
-  minigameName: Rock
+  minigamePrefab: {fileID: 5611688276045017589, guid: a9314e1a0667d594baa8875bd98c57e1, type: 3}
 --- !u!1 &3994387249584503221
 GameObject:
   m_ObjectHideFlags: 0

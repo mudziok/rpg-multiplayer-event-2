@@ -45,13 +45,10 @@ public class UnfinishedStructure : MonoBehaviour
     private GridGameObjectCollection resourcesDeposidGridCollection;
 
     [SerializeField]
-    [Tooltip("Name of the minigame as specified in the MinigameManager")]
-    private string minigameName;
-
+    private GameObject minigamePrefab;
+    private MinigameBase minigame;
 
     public event PropertyChangedEventHandler PropertyChanged;
-
-    private MinigameBase minigame;
 
     private void Awake()
     {
@@ -61,15 +58,6 @@ public class UnfinishedStructure : MonoBehaviour
         this.PropertyChanged += OnPropertyChanged;
         //Ustawiamy prefab zasobu w gridzie
         resourcesDeposidGridCollection.prefab = neededResource.prefab;
-    }
-
-    private void Start()
-    {
-        if (!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
-        {
-            Debug.LogErrorFormat("No minigame named {0} found in the MinigamesManager. Check MinigamesManager configuration", minigameName);
-        }
-        minigame.actionPerformedEvent += BuildStructure;
     }
 
     private void Update()
@@ -87,7 +75,9 @@ public class UnfinishedStructure : MonoBehaviour
                 }
                 if (CheckIfCanBuild())
                 {
-                    minigame.Open();
+                    minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
+                    minigame.actionPerformedEvent += BuildStructure;
+                    minigame.closedEvent += () => minigame = null;
                 }
             }
         }

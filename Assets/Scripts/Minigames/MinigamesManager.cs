@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class MinigamesManager : Singleton<MinigamesManager>
 {
-    [SerializeField]
-    private SerializedDictionary<string, MinigameBase> minigames;
-    public SerializedDictionary<string, MinigameBase> Minigames => minigames;
+    private GameObject currentMinigame;
 
-    private void Start()
+    public MinigameBase StartMinigame(GameObject minigamePrefab)
     {
-        foreach(MinigameBase minigame in Minigames.Values)
+        if (currentMinigame != null)
         {
-            minigame.gameObject.SetActive(false);
+            Destroy(currentMinigame);
         }
+        currentMinigame = Instantiate(minigamePrefab, transform);
+        if(currentMinigame.TryGetComponent(out MinigameBase minigame))
+        {
+            minigame.closedEvent += () => currentMinigame = null;
+            return minigame;
+        }
+        Debug.LogErrorFormat("No minigame script in minigame prefab {0}", minigamePrefab.name);
+        currentMinigame = null;
+        return null;
     }
 }
