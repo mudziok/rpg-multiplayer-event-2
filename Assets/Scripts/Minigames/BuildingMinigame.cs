@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class BuildMinigame : MinigameBase
 {
     //Current state of the minigame. It changes in the following order:
-    //(Ready->Hit)->FadeOut->FadeIn
-    //      ^repeated N times
+    //Ready->Hit->FadeOut->FadeIn
     private enum State
     {
         Ready,
