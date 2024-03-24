@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoneMinigame : MinigameBase
 {
+    //Current state of the minigame. It changes in the following order:
+    //(Ready->Hit)->FadeOut->FadeIn
+    //      ^repeated N times
     private enum State
     {
         Ready,
         Hit,
-        Falling,
         FadeOut,
         FadeIn
     }
@@ -24,10 +25,12 @@ public class StoneMinigame : MinigameBase
 
     [Header("Config")]
     [SerializeField]
+    [Tooltip("Specifies sprites for levels of stone's destruction. Count of hits required to break the stone is equal to the size of this array")]
     private Sprite[] stonePhases;
     [SerializeField]
     private float pickaxeSpeed;
     [SerializeField]
+    [Tooltip("Angle at which the pickaxe ends its movement")]
     private float pickaxeHitAngle;
     [SerializeField]
     private float stoneFadeDuration;

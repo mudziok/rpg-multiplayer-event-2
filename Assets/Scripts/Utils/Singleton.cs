@@ -3,8 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A utility class implementing the singleton design pattern.
+//Usage of this is controversial, but in a small project like this it shouldn't explode.
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
+    //If you want to use the singleon in Awake(), you shound check if it's already initialized.
+    //If it's not, you should use it in a listener of this event.
     public static event Action OnInstantiate;
     public static bool IsInstanced => instance != null;
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WoodMinigame : MinigameBase
 {
-    //Current state of the minigame. It should change in the following order:
+    //Current state of the minigame. It changes in the following order:
     //Cutting->Falling->FadeOut->FadeIn
     private enum State
     {
@@ -70,7 +70,7 @@ public class WoodMinigame : MinigameBase
                 mouseDistance = 0;
                 state = State.Falling;
                 saw.gameObject.SetActive(false);
-                //All of this could have been done using animations, but I've forgotten they exists
+                //All of this could have been done using animations, but I've forgotten they exist
                 StartCoroutine(RotationCoroutine(tree.rectTransform, new Vector3(0, 0, 90), treeFallingSpeed, OnTreeFallEnd));
             }
         }
