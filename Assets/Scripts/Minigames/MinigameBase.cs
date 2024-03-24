@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +18,14 @@ public class MinigameBase : MonoBehaviour
     {
         closedEvent?.Invoke();
         gameObject.SetActive(false);
+    }
+
+    protected virtual void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Close();
+        }
     }
 
     protected void PerformAction()

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +35,7 @@ public class WoodMinigame : MinigameBase
     [Tooltip("In seconds")]
     private float treeFadeDuration;
 
+    [Header("Debug")]
     [SerializeField]
     [ReadOnly]
     private float lastMouseX;
@@ -48,7 +48,6 @@ public class WoodMinigame : MinigameBase
 
     private void Awake()
     {
-        gameObject.SetActive(false);
         closedEvent += OnClose;
     }
 
@@ -57,12 +56,9 @@ public class WoodMinigame : MinigameBase
         StopAllCoroutines();
     }
 
-    private void Update()
+    protected override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Close();
-        }
+        base.Update();
 
         if (state == State.Cutting)
         {
@@ -84,12 +80,12 @@ public class WoodMinigame : MinigameBase
     {
         base.Open();
 
-        lastMouseX = GetNormalizedAndClampedMouseX();
         ResetMinigameState();
     }
 
     private void ResetMinigameState()
     {
+        lastMouseX = GetNormalizedAndClampedMouseX();
         mouseDistance = 0;
         state = State.Cutting;
         saw.gameObject.SetActive(true);
