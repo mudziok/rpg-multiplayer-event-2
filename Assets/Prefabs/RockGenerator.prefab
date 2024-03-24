@@ -492,9 +492,7 @@ MonoBehaviour:
   generator: {fileID: 7083301136236841932}
   gridCollection: {fileID: 4057932846982876164}
   outTransferActivator: {fileID: 317589137525463661}
-  outTransferActivated: 0
-  outTransferTimer: 0
-  outTransferDelay: 0.5
+  minigamePrefab: {fileID: 6469253280152134193, guid: dbf06267b2d161346a25625c301de24b, type: 3}
 --- !u!1 &5221750381875484983
 GameObject:
   m_ObjectHideFlags: 0
