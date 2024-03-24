@@ -48,7 +48,11 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
     private void Awake()
     {
         activator.PropertyChanged += OnPropertyChanged;
-        if(!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
+    }
+
+    private void Start()
+    {
+        if (!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
         {
             Debug.LogErrorFormat("No minigame named {0} found in the MinigamesManager. Check MinigamesManager configuration", minigameName);
         }

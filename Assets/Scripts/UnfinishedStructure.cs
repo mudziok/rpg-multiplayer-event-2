@@ -44,8 +44,14 @@ public class UnfinishedStructure : MonoBehaviour
     //Kolekcja zasobów w budynku, grid do po³o¿enia zasobów obok budynku
     private GridGameObjectCollection resourcesDeposidGridCollection;
 
+    [SerializeField]
+    [Tooltip("Name of the minigame as specified in the MinigameManager")]
+    private string minigameName;
+
 
     public event PropertyChangedEventHandler PropertyChanged;
+
+    private MinigameBase minigame;
 
     private void Awake()
     {
@@ -55,6 +61,15 @@ public class UnfinishedStructure : MonoBehaviour
         this.PropertyChanged += OnPropertyChanged;
         //Ustawiamy prefab zasobu w gridzie
         resourcesDeposidGridCollection.prefab = neededResource.prefab;
+    }
+
+    private void Start()
+    {
+        if (!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
+        {
+            Debug.LogErrorFormat("No minigame named {0} found in the MinigamesManager. Check MinigamesManager configuration", minigameName);
+        }
+        minigame.actionPerformedEvent += BuildStructure;
     }
 
     private void Update()
@@ -70,6 +85,10 @@ public class UnfinishedStructure : MonoBehaviour
                 {
                     ResourceAmount += 1;
                 }
+                if (CheckIfCanBuild())
+                {
+                    minigame.Open();
+                }
             }
         }
     }
@@ -78,7 +97,6 @@ public class UnfinishedStructure : MonoBehaviour
     {
         if (e.PropertyName == "IsActivated")
         {
-            BuildStructure();
             inTransferActivated = activator.IsActivated;
         }
 
@@ -111,8 +129,6 @@ public class UnfinishedStructure : MonoBehaviour
 
     private void BuildStructure()
     {
-        Debug.Log("Trying Building structure");
-        if (!CheckIfCanBuild()) return;
         Instantiate(finishedStructurePrefab, finishedStructureLocation.position, finishedStructureLocation.rotation);
         Destroy(gameObject);
     }
