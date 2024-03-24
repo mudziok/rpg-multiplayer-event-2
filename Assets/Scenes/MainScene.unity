@@ -4768,6 +4768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2198169232675569068, guid: 31145fa2c961ba94cb20e9ee89f6fed0, type: 3}
+      propertyPath: minigamePrefab
+      value: 
+      objectReference: {fileID: 6469253280152134193, guid: dbf06267b2d161346a25625c301de24b, type: 3}
     - target: {fileID: 2349861020599202957, guid: 31145fa2c961ba94cb20e9ee89f6fed0, type: 3}
       propertyPath: m_Name
       value: TreeGenerator
@@ -4956,10 +4960,6 @@ PrefabInstance:
     - target: {fileID: 7350117799141146780, guid: 7a9d6980f0d270d43b0f2806b1a9e227, type: 3}
       propertyPath: minigameName
       value: Building
-      objectReference: {fileID: 0}
-    - target: {fileID: 7350117799141146780, guid: 7a9d6980f0d270d43b0f2806b1a9e227, type: 3}
-      propertyPath: neededResourceAmount
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

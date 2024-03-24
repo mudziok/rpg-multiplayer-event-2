@@ -11,11 +11,10 @@ public class GeneratorDepot : MonoBehaviour
     public InteractiveElement outTransferActivator;
 
     [SerializeField]
-    private bool outTransferActivated = false;
-    [SerializeField]
-    private float outTransferTimer = 0f;
-    [SerializeField]
-    private float outTransferDelay = 2f;
+    private GameObject minigamePrefab;
+
+    private MinigameBase minigame;
+
     private void Awake()
     {
         gridCollection.prefab = generator.resource.prefab;
@@ -23,19 +22,15 @@ public class GeneratorDepot : MonoBehaviour
         outTransferActivator.PropertyChanged += OnPropertyChanged;
     }
 
-    private void Update()
+    private void TransferResource()
     {
-        if (outTransferActivated && generator.ResourceAmount > 0)
+        if (outTransferActivator.PlayerGameObject.GetComponent<PlayerBackPack>().TransferIn(generator.resource, 1))
         {
-            outTransferTimer += Time.deltaTime;
-            if (outTransferTimer >= outTransferDelay)
-            {
-                outTransferTimer = 0f;
-                if (outTransferActivator.PlayerGameObject.GetComponent<PlayerBackPack>().TransferIn(generator.resource, 1))
-                {
-                    generator.ResourceAmount -= 1;
-                }
-            }
+            generator.ResourceAmount -= 1;
+        }
+        if (generator.ResourceAmount == 0)
+        {
+            minigame.Close();
         }
     }
 
@@ -47,9 +42,14 @@ public class GeneratorDepot : MonoBehaviour
 
             StartCoroutine(UpdateDepotStash());
         }
+
         if (e.PropertyName == "IsActivated")
         {
-            outTransferActivated = outTransferActivator.IsActivated; 
+            if (generator.ResourceAmount > 0)
+            {
+                minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
+                minigame.actionPerformedEvent += TransferResource;
+            }
         }
     }
 

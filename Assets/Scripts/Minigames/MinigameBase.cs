@@ -30,7 +30,7 @@ public class MinigameBase : MonoBehaviour
     }
 
     //Close the minigame
-    protected void Close()
+    public void Close()
     {
         closedEvent?.Invoke();
         Destroy(gameObject);
