@@ -544,10 +544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activator: {fileID: 3204792247997927554}
-  generationTime: 1
   generationAmount: 1
   resource: {fileID: 11400000, guid: 0a13ce58defef9540b6ac56a9d3fd5f6, type: 2}
-  generationTimer: 0
+  minigameName: Tree
 --- !u!1 &2376191698874147338
 GameObject:
   m_ObjectHideFlags: 0

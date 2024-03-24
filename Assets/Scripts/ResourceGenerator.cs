@@ -38,14 +38,20 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
     public GameResource resource;
 
     [SerializeField]
-    private MinigameBase minigame;
+    [Tooltip("Name of the minigame as specified in the MinigameManager")]
+    private string minigameName;
     
 
     public event PropertyChangedEventHandler PropertyChanged;
+    private MinigameBase minigame;
 
     private void Awake()
     {
         activator.PropertyChanged += OnPropertyChanged;
+        if(!MinigamesManager.Instance.Minigames.TryGetValue(minigameName, out minigame))
+        {
+            Debug.LogErrorFormat("No minigame named {0} found in the MinigamesManager. Check MinigamesManager configuration", minigameName);
+        }
         minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;
     }
 

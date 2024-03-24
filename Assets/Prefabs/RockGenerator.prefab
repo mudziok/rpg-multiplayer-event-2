@@ -319,10 +319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activator: {fileID: 5163353703969040587}
-  generationTime: 1
   generationAmount: 1
   resource: {fileID: 11400000, guid: 9fdc8eaa63412c740889b338509b2df9, type: 2}
-  generationTimer: 0
+  minigameName: Rock
 --- !u!1 &3994387249584503221
 GameObject:
   m_ObjectHideFlags: 0
