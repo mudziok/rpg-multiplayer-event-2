@@ -53,7 +53,7 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
         if (e.PropertyName == "IsActivated")
         {
             if (activator.IsActivated)
-            {
+            { 
                 isGenerating = true;
                 minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
                 minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;

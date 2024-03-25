@@ -28,6 +28,7 @@ public class GeneratorDepot : MonoBehaviour
         {
             generator.ResourceAmount -= 1;
         }
+
         if (generator.ResourceAmount == 0)
         {
             minigame.Close();
@@ -39,7 +40,6 @@ public class GeneratorDepot : MonoBehaviour
         if (e.PropertyName == "ResourceAmount")
         {
             //Jest przypadek ¿e np. ta courtyna uruchomi siê parê razy przy zmianie ResourceAmount wielokrotnym zanim zd¹¿y siê skoñczyæ - naprawiæ
-
             StartCoroutine(UpdateDepotStash());
         }
 
