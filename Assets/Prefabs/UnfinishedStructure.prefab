@@ -191,6 +191,7 @@ MonoBehaviour:
   inTransferTimer: 0
   inTransferDelay: 0.5
   resourcesDeposidGridCollection: {fileID: 1904689701082755831}
+  minigamePrefab: {fileID: 7314994602675520242, guid: 253bb6a732ccdfd4a90554490db90590, type: 3}
 --- !u!1 &3195372301119556286
 GameObject:
   m_ObjectHideFlags: 0
