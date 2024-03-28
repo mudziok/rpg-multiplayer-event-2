@@ -35,5 +35,4 @@ public class Mushrooms : MonoBehaviour
         currentColor.r = Mathf.Clamp01(currentColor.r);
         mainCamera.backgroundColor = currentColor;
     }
-
 }
