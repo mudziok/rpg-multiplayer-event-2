@@ -44,6 +44,13 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("moveSpeed", 0);
         }
 
+        if(Input.GetKey(KeyCode.LeftShift)){ //sprint
+            speed= 4.0f;
+        }
+        else{
+            speed = 2.0f; 
+        }
+
         // Move the player
         transform.position += moveDirection * speed * Time.deltaTime;
     }
