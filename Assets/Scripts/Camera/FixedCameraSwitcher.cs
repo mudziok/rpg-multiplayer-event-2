@@ -37,7 +37,7 @@ public class FixedCameraSwitcher : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(name + " " + activeCam.Priority);
+        //Debug.Log(name + " " + activeCam.Priority);       DLACZEGO TA LINIJKA???!!!
     }
 }
 

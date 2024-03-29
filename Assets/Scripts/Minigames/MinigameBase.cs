@@ -6,12 +6,20 @@ using UnityEngine.UI;
 
 public class MinigameBase : MonoBehaviour
 {
+    private TankPlayerController playerMovement;
+
     public event Action actionPerformedEvent;
     public event Action closedEvent;
 
     //Starts the minigame
     public virtual void Open()
     {
+
+    }
+
+    public void SetPlayer(TankPlayerController input)
+    {
+        playerMovement = input;
     }
 
     //Override Update() to implement your minigame. Don't forget to call base.Update()
@@ -32,6 +40,7 @@ public class MinigameBase : MonoBehaviour
     //Close the minigame
     public void Close()
     {
+        playerMovement.Unpause();
         closedEvent?.Invoke();
         Destroy(gameObject);
     }
