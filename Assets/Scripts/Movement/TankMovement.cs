@@ -63,5 +63,9 @@ public class TankPlayerController : MonoBehaviour
             moveDirection.y = vSpeed;
             controller.Move(moveDirection * Time.deltaTime);
         }
+        else
+        {
+            animator.SetFloat("moveSpeed", 0);
+        }
     }
 }

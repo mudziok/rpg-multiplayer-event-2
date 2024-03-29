@@ -15526,13 +15526,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- \"Gman (From Half-life Alyx)\" (https://skfb.ly/6SZOW) by Sandy_boi
-    is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\n-
+  m_text: "Tutaj wpisane s\u0105 assety kt\xF3re powinny znale\u017A\u0107 si\u0119
+    w ko\u0144cowych creditsach\n\n- \"Gman (From Half-life Alyx)\" (https://skfb.ly/6SZOW)
+    by Sandy_boi is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\n-
     I Walk With Ghosts by Scott Buckley | www.scottbuckley.com.au\r\nMusic promoted
     by https://www.chosic.com/free-music/all/\r\nCreative Commons Attribution 4.0
-    International (CC BY 4.0)\r\nhttps://creativecommons.org/licenses/by/4.0/\r\n
-    \nTutaj wpisane s\u0105 assety kt\xF3re powinny znale\u017A\u0107 si\u0119 w
-    ko\u0144cowych creditsach"
+    International (CC BY 4.0)\r\nhttps://creativecommons.org/licenses/by/4.0/\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
