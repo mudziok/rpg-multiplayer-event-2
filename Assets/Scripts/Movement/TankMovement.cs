@@ -5,6 +5,9 @@ using UnityEngine;
 public class TankPlayerController : MonoBehaviour
 {
     // Implementacja "tank controls". Postaæ porusza siê do przodu wzglêdem swojej rotacji, co pozwala zachowaæ kierunek ruchu przy zmianie pozycji aktywnej kamery
+    [SerializeField]
+    private Animator animator; // Reference to the Animator component
+
     private CharacterController controller;
     private float vSpeed = 0;
     private bool paused = false;
@@ -48,6 +51,11 @@ public class TankPlayerController : MonoBehaviour
                 transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0);
                 // Obliczenie ruchu do przodu
                 moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+                animator.SetFloat("moveSpeed", moveDirection.magnitude);
+            }
+            else
+            {
+                animator.SetFloat("moveSpeed", 0);
             }
 
             // Zastosuj grawitacjê

@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e428bddd31a7a043b3a301df7605fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2196616767028337563}
   speed: 1.5
   turnSpeed: 180
   gravity: 9.8
@@ -562,5 +563,10 @@ PrefabInstance:
 --- !u!4 &192352484416481624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9015114940946415185, guid: 49811f4806e6e2c4ea7f45a0d3a17ef7, type: 3}
+  m_PrefabInstance: {fileID: 9202895653857105673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2196616767028337563 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7047204987365461138, guid: 49811f4806e6e2c4ea7f45a0d3a17ef7, type: 3}
   m_PrefabInstance: {fileID: 9202895653857105673}
   m_PrefabAsset: {fileID: 0}
