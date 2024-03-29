@@ -23,7 +23,7 @@ public class Mushrooms : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("dotknal");
+            Debug.Log("maybe jumpscare????");
             ChangeScreenColor();
         }
     }
