@@ -15527,9 +15527,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- \"Gman (From Half-life Alyx)\" (https://skfb.ly/6SZOW) by Sandy_boi
-    is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\n\nTutaj
-    wpisane s\u0105 assety kt\xF3re powinny znale\u017A\u0107 si\u0119 w ko\u0144cowych
-    creditsach"
+    is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\n-
+    I Walk With Ghosts by Scott Buckley | www.scottbuckley.com.au\r\nMusic promoted
+    by https://www.chosic.com/free-music/all/\r\nCreative Commons Attribution 4.0
+    International (CC BY 4.0)\r\nhttps://creativecommons.org/licenses/by/4.0/\r\n
+    \nTutaj wpisane s\u0105 assety kt\xF3re powinny znale\u017A\u0107 si\u0119 w
+    ko\u0144cowych creditsach"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19048,7 +19051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 911359548670225443, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: near clip plane
-      value: 0.01
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1319832254036790288, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_Name
@@ -19056,31 +19059,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2880001
+      value: 0.33200002
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.183
+      value: 0.778
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.88100004
+      value: -1.724
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.89239913
+      value: -0.9344253
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23911765
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.3696438
+      value: 0.3561592
       objectReference: {fileID: 0}
     - target: {fileID: 2365307570929078904, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.09904577
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4470699386920003091, guid: 976c2ae6813cce947a9219178de0d7c4, type: 3}
       propertyPath: m_LocalPosition.x
