@@ -6,12 +6,20 @@ using UnityEngine.UI;
 
 public class MinigameBase : MonoBehaviour
 {
+    private TankPlayerController playerMovement;
+
     public event Action actionPerformedEvent;
     public event Action closedEvent;
 
     //Starts the minigame
     public virtual void Open()
     {
+
+    }
+
+    public void SetPlayer(TankPlayerController input)
+    {
+        playerMovement = input;
     }
 
     //Override Update() to implement your minigame. Don't forget to call base.Update()
@@ -26,12 +34,14 @@ public class MinigameBase : MonoBehaviour
     //Triggers execution of an action linked to this minigame. E.g. adding a new wood log in tree cutting minigame. Call this when player finishes the minigame
     protected void PerformAction()
     {
+        playerMovement.Pause();
         actionPerformedEvent?.Invoke();
     }
 
     //Close the minigame
     public void Close()
     {
+        playerMovement.Unpause();
         closedEvent?.Invoke();
         Destroy(gameObject);
     }
