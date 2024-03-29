@@ -34,7 +34,6 @@ public class MinigameBase : MonoBehaviour
     //Triggers execution of an action linked to this minigame. E.g. adding a new wood log in tree cutting minigame. Call this when player finishes the minigame
     protected void PerformAction()
     {
-        playerMovement.Pause();
         actionPerformedEvent?.Invoke();
     }
 

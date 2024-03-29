@@ -17,6 +17,7 @@ public class MinigamesManager : Singleton<MinigamesManager>
         currentMinigame = Instantiate(minigamePrefab, transform);
         if(currentMinigame.TryGetComponent(out MinigameBase minigame))
         {
+            Player.Pause();
             minigame.SetPlayer(Player);
             minigame.closedEvent += () => currentMinigame = null;
             return minigame;
