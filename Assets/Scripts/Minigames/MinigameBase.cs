@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,20 +7,18 @@ using UnityEngine.UI;
 
 public class MinigameBase : MonoBehaviour
 {
-    private TankPlayerController playerMovement;
-
     public event Action actionPerformedEvent;
     public event Action closedEvent;
+
+    public CinemachineVirtualCamera activeCam = null;
 
     //Starts the minigame
     public virtual void Open()
     {
-
-    }
-
-    public void SetPlayer(TankPlayerController input)
-    {
-        playerMovement = input;
+        if(activeCam!=null)
+        {
+            activeCam.Priority = 2; //Nadaje priorytet 2, wiêkszy ni¿ w FixedCameraSwitcher, ale nie zmieniam wczeœniejszego priorytetu. S³owem po zamkniêciu mnigry powiniœmy wróciæ do popzedniej kamery z priorytetem 1 :D 
+        }
     }
 
     //Override Update() to implement your minigame. Don't forget to call base.Update()
@@ -40,9 +39,12 @@ public class MinigameBase : MonoBehaviour
     //Close the minigame
     public void Close()
     {
-        playerMovement.Unpause();
         closedEvent?.Invoke();
-        Destroy(gameObject);
+        //Destroy(gameObject); //Raczej odsuniemy siê od idei instancjonowania i usuwania
+        if (activeCam != null)
+        {
+            activeCam.Priority = 0;
+        }
     }
 
     //Helper coroutines. These could be replaced with animation calls

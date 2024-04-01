@@ -8,22 +8,29 @@ public class MinigamesManager : Singleton<MinigamesManager>
 
     public TankPlayerController Player;
 
-    public MinigameBase StartMinigame(GameObject minigamePrefab)
+    public MinigameBase StartMinigame(GameObject minigameObject)
     {
         if (currentMinigame != null)
         {
-            Destroy(currentMinigame);
+            StopMinigame();
         }
-        currentMinigame = Instantiate(minigamePrefab, transform);
+
+        currentMinigame = minigameObject;
         if(currentMinigame.TryGetComponent(out MinigameBase minigame))
         {
             Player.Pause();
-            minigame.SetPlayer(Player);
-            minigame.closedEvent += () => currentMinigame = null;
+            minigame.Open();
+            minigame.closedEvent += StopMinigame;
             return minigame;
         }
-        Debug.LogErrorFormat("No minigame script in minigame prefab {0}", minigamePrefab.name);
+        Debug.LogErrorFormat("No minigame script in minigame prefab {0}", minigameObject.name);
         currentMinigame = null;
         return null;
+    }
+
+    void StopMinigame()
+    {
+        currentMinigame = null;
+        Player.Unpause();
     }
 }
