@@ -11,8 +11,8 @@ public class DialogOpener : MonoBehaviour, INotifyPropertyChanged
     public InteractiveElement activator;
 
     [SerializeField]
-    private GameObject minigamePrefab;
-    private MinigameBase minigame;
+    private GameObject dialogPrefab;
+    private DialogBase dialog;
 
     [SerializeField]
     private string message;
@@ -33,12 +33,12 @@ public class DialogOpener : MonoBehaviour, INotifyPropertyChanged
         if (e.PropertyName == "IsActivated")
         {
             if (activator.IsActivated && !visited)
-            { 
-                minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
-                minigame.GetComponent<DialogMinigame>().SetMessage(message);
-                minigame.GetComponent<DialogMinigame>().SetImage(image);
-                minigame.GetComponent<DialogMinigame>().SetTalkingSound(sound);
-                minigame.closedEvent += () => minigame = null;
+            {
+                dialog = DialogManager.Instance.InitDialog(dialogPrefab);
+                dialog.GetComponent<DialogMinigame>().SetMessage(message);
+                dialog.GetComponent<DialogMinigame>().SetImage(image);
+                dialog.GetComponent<DialogMinigame>().SetTalkingSound(sound);
+                dialog.closedEvent += () => dialog = null;
                 visited = true;
             }
             else

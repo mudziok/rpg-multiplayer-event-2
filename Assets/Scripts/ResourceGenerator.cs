@@ -46,6 +46,9 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
     private void Awake()
     {
         activator.PropertyChanged += OnPropertyChanged;
+        minigame = minigamePrefab.GetComponent<MinigameBase>();
+        minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;
+        minigame.closedEvent += () => minigame = null;
     }
 
     private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -53,11 +56,9 @@ public class ResourceGenerator : MonoBehaviour, INotifyPropertyChanged
         if (e.PropertyName == "IsActivated")
         {
             if (activator.IsActivated)
-            { 
+            {
+                MinigamesManager.Instance.StartMinigame(minigamePrefab);
                 isGenerating = true;
-                minigame = MinigamesManager.Instance.StartMinigame(minigamePrefab);
-                minigame.actionPerformedEvent += () => ResourceAmount += generationAmount;
-                minigame.closedEvent += () => minigame = null;
             }
             else
             {

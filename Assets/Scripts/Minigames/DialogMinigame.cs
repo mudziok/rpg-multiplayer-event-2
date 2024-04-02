@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class DialogMinigame : MinigameBase
+public class DialogMinigame : DialogBase
 {
     //Current state of the minigame. It changes in the following order:
     //Ready->Hit->FadeOut->FadeIn
@@ -22,6 +22,8 @@ public class DialogMinigame : MinigameBase
     private TMPro.TextMeshProUGUI messageField;
     [SerializeField]
     private AudioSource talkingSound;
+    [SerializeField]
+    private GameObject instructionMessageField;
 
     [Header("Config")]
     [SerializeField]
@@ -59,13 +61,13 @@ public class DialogMinigame : MinigameBase
                 counter -= oneLetterTypingSpeed;
                 messageField.text = messageField.text + message[messageField.text.Length];
             }
+            if (messageField.text.Length == message.Length)
+            {
+                instructionMessageField.SetActive(true);
+            }
         }
     }
 
-    public override void Open()
-    {
-        base.Open();
-    }
     public void SetMessage(string newMessage)
     {
         message = newMessage;
