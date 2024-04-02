@@ -1,4 +1,4 @@
-Shader "Custom/GrassShader"
+Shader "Custom/Wind Shader"
 {
     Properties
     {
@@ -9,6 +9,8 @@ Shader "Custom/GrassShader"
         _WindIntensity("Wind Intensity", Float) = 1.0
         _WindStartHeight("Wind Start Height", Float) = 0.0
         _WindHeightInfluence("Wind Height Influence", Float) = 1.0
+        _WindSpeed("Wind Speed", Float) = 1.0
+        _WindDirection("Wind Direction", Vector) = (1.0, 0.1, 0.5)
     }
     SubShader
     {
@@ -33,17 +35,22 @@ Shader "Custom/GrassShader"
         float _WindIntensity;
         float _WindStartHeight;
         float _WindHeightInfluence;
+        float _WindSpeed;
+        float3 _WindDirection;
 
         void vert(inout appdata_full v, out Input o)
         {
-            UNITY_INITIALIZE_OUTPUT(Input, o); 
+            UNITY_INITIALIZE_OUTPUT(Input, o);
             o.uv_MainTex = v.texcoord.xy;
 
+            float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
             float heightAboveStart = max(0.0, v.vertex.y - _WindStartHeight);
-            float windEffect = _WindIntensity * pow(heightAboveStart * _WindHeightInfluence, 0.5); 
+            float windEffect = _WindIntensity * pow(heightAboveStart * _WindHeightInfluence, 0.5);
 
-            float3 windDirection = float3(1.0, 0.0, 0.0);
-            v.vertex.xyz += windDirection * windEffect * sin(_Time.y + v.vertex.x + v.vertex.z);
+            float windPhase = sin(worldPos.x + worldPos.z + _Time.y * _WindSpeed);
+
+            v.vertex.xyz += _WindDirection * windEffect * windPhase;
+            v.vertex.y += 0.0001;
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
