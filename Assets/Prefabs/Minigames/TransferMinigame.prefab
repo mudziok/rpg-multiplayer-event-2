@@ -1067,6 +1067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d0f4d74c945584583c3bb28bdc4553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGame: 1
+  activeCam: {fileID: 0}
   box: {fileID: 3805625966800855302}
   boxFadeTime: 1
   dropAreaWidth: 0.2

@@ -9,6 +9,7 @@ public class MinigameBase : MonoBehaviour
 {
     public event Action actionPerformedEvent;
     public event Action closedEvent;
+    public bool uiGame;
 
     public CinemachineVirtualCamera activeCam = null;
 
@@ -19,6 +20,7 @@ public class MinigameBase : MonoBehaviour
         {
             activeCam.Priority = 2; //Nadaje priorytet 2, wiêkszy ni¿ w FixedCameraSwitcher, ale nie zmieniam wczeœniejszego priorytetu. S³owem po zamkniêciu mnigry powiniœmy wróciæ do popzedniej kamery z priorytetem 1 :D 
         }
+        if(uiGame) gameObject.SetActive(true);
     }
 
     //Override Update() to implement your minigame. Don't forget to call base.Update()
@@ -40,11 +42,11 @@ public class MinigameBase : MonoBehaviour
     public void Close()
     {
         closedEvent?.Invoke();
-        //Destroy(gameObject); //Raczej odsuniemy siê od idei instancjonowania i usuwania
         if (activeCam != null)
         {
             activeCam.Priority = 0;
         }
+        if (uiGame) Destroy(gameObject);
     }
 
     //Helper coroutines. These could be replaced with animation calls

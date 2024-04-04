@@ -315,6 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9c8720e6f0b914c9ce2e9e7bb6ccba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGame: 1
+  activeCam: {fileID: 0}
   saw: {fileID: 1788688404492209501}
   tree: {fileID: 4209804037975526348}
   movementPerTree: 1

@@ -68,7 +68,6 @@ public class BuildMinigame : MinigameBase
     public override void Open()
     {
         base.Open();
-
         ResetMinigameState();
     }
 
@@ -92,8 +91,10 @@ public class BuildMinigame : MinigameBase
     private void OnHammerHit()
     {
         phaseCounter++;
+        Debug.Log("" + phaseCounter + " / " + buildingPhases.Length);
         if (buildingPhases.Length == phaseCounter)
         {
+            Debug.Log("jest");
             PerformAction();
             Close();
         }

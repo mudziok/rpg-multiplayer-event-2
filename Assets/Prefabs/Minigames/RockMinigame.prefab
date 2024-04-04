@@ -389,6 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f96326a12c009469083b10ba5d57c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGame: 1
+  activeCam: {fileID: 0}
   pickaxe: {fileID: 8334220154207409545}
   stone: {fileID: 7821006808986577938}
   stonePhases:
