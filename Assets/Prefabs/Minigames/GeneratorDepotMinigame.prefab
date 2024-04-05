@@ -458,7 +458,10 @@ MonoBehaviour:
   rows: 3
   columns: 10
   spacing: 0.1
+  rotation: 0
   prefab: {fileID: 0}
+  prefabPositionOffset: {x: 0, y: 0, z: 0}
+  prefabRotationOffset: {x: 0, y: 0, z: 0}
   gridObjects: []
 --- !u!114 &8201548478182002814
 MonoBehaviour:
@@ -472,8 +475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8284409673c07bf4c9de44673e328356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGame: 0
   activeCam: {fileID: 2826319199123322489}
   dropzone: {fileID: 5001677728133951848}
+  depot: {fileID: 5013996267480200391}
 --- !u!1 &6403400467203100479
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class MinigamesManager : Singleton<MinigamesManager>
         currentMinigame = minigameObject;
         if(currentMinigame.TryGetComponent(out MinigameBase minigame))
         {
+            if (minigame.uiGame) minigame = Instantiate(currentMinigame, GameObject.Find("MinigamesCanvas").transform).GetComponent<MinigameBase>();
             Player.Pause();
             minigame.Open();
             minigame.closedEvent += StopMinigame;

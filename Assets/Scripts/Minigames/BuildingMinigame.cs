@@ -68,7 +68,6 @@ public class BuildMinigame : MinigameBase
     public override void Open()
     {
         base.Open();
-
         ResetMinigameState();
     }
 

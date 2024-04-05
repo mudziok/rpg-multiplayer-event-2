@@ -10,6 +10,7 @@ public class DropZone : MonoBehaviour
     {
         if (other.gameObject.GetComponent<ItemGrabber>() != null)
         {
+            Debug.Log("found");
             onItemDrop.Invoke(other.gameObject);
         }
     }

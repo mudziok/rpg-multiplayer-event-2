@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b261be7dfd94c7243abe6379db0d443a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragSensitivity: 2
 --- !u!1001 &2785171693827264431
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,10 @@ public class GridGameObjectCollection : MonoBehaviour
     public int rows = 1;
     public int columns = 5;
     public float spacing = 1.0f;
+    public float rotation = 0.0f;
     public GameObject prefab;
+    [SerializeField] Vector3 prefabPositionOffset;
+    [SerializeField] Vector3 prefabRotationOffset;
 
     public List<GameObject> gridObjects = new List<GameObject>();
 
@@ -24,7 +27,7 @@ public class GridGameObjectCollection : MonoBehaviour
         if (gridObjects.Count < rows * columns)
         {
             Vector3 nextPosition = CalculateNextPosition();
-            GameObject newObject = Instantiate(prefab, nextPosition, Quaternion.identity, transform);
+            GameObject newObject = Instantiate(prefab, nextPosition, transform.rotation * Quaternion.Euler(Vector3.up * rotation) * Quaternion.Euler(prefabRotationOffset), transform);
             gridObjects.Add(newObject);
         }
         else
@@ -38,7 +41,7 @@ public class GridGameObjectCollection : MonoBehaviour
         int currentCount = gridObjects.Count;
         int row = currentCount / columns;
         int column = currentCount % columns;
-        return new Vector3(column * spacing, row * spacing, 0) + transform.position;
+        return (Quaternion.Euler(Vector3.up * rotation) * new Vector3(column * spacing, row * spacing, 0)) + transform.position + prefabPositionOffset;
     }
 
     // This method will remove the last object from the grid
@@ -48,7 +51,7 @@ public class GridGameObjectCollection : MonoBehaviour
         {
             GameObject toRemove = gridObjects[gridObjects.Count - 1];
             gridObjects.Remove(toRemove);
-            DestroyImmediate(toRemove);
+            Destroy(toRemove);
         }
         else
         {
@@ -74,7 +77,7 @@ public class GridGameObjectCollectionEditor : Editor
         {
             for (int j = 0; j < grid.columns; j++)
             {
-                Vector3 position = new Vector3(j * grid.spacing, i * grid.spacing, 0) + grid.transform.position;
+                Vector3 position = (Quaternion.Euler(0.0f, grid.rotation, 0.0f) * new Vector3(j * grid.spacing, i * grid.spacing, 0)) + grid.transform.position;
                 if (i * grid.columns + j < grid.gridObjects.Count)
                 {
                     Handles.color = Color.red;

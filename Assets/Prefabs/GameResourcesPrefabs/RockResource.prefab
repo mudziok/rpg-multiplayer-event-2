@@ -41,6 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949583480139567422}
+  - component: {fileID: 2302270254481260802}
+  - component: {fileID: 8443775893224672361}
   m_Layer: 0
   m_Name: RockResource
   m_TagString: Untagged
@@ -64,6 +66,40 @@ Transform:
   - {fileID: 1723637682487390517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2302270254481260802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852653292346610791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b261be7dfd94c7243abe6379db0d443a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragSensitivity: 2
+--- !u!65 &8443775893224672361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852653292346610791}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11, y: 0.09, z: 0.14}
+  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1001 &6399157219693130560
 PrefabInstance:
   m_ObjectHideFlags: 0

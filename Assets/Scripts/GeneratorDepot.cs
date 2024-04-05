@@ -22,7 +22,7 @@ public class GeneratorDepot : MonoBehaviour
         outTransferActivator.PropertyChanged += OnPropertyChanged;
     }
 
-    private void TransferResource()
+    public void TransferResource()
     {
         if (outTransferActivator.PlayerGameObject.GetComponent<PlayerBackPack>().TransferIn(generator.resource, 1))
         {
